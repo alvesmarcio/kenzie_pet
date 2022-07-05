@@ -6,4 +6,5 @@ class Animal(models.Model):
     weight = models.FloatField()
     sex = models.CharField(max_length=15)
     
-    characteristic = models.ManyToManyField(to='characteristics.Characteristic')
+    group = models.ForeignKey(to='groups.Group', on_delete=models.CASCADE, related_name="animals")
+    characteristics = models.ManyToManyField(to='characteristics.Characteristic')
